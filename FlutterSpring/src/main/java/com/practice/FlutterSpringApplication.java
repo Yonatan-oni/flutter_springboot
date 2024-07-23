@@ -8,6 +8,7 @@ public class FlutterSpringApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FlutterSpringApplication.class, args);
+		//System.out.println("Heloooooooo");
 	}
 
 }

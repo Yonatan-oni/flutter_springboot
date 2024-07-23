@@ -38,10 +38,10 @@ class _HomePageState extends State<HomePage> {
         title: const Text("HEllo"),
       ),
       body: Visibility(
-        visible: isLoaded,
-        replacement: const Center(
-          child: CircularProgressIndicator(),
-        ),
+        visible: true,
+        // replacement: const Center(
+        //   child: CircularProgressIndicator(),
+        // ),
         child: ListView.builder(
             itemCount: posts?.length,
             itemBuilder: (context, index) {
