@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:json/model/post.dart';
-import 'package:json/services/remote_service.dart';
+import 'package:json/controller/remote_controller.dart';
 import 'package:json/view/widgets/post_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   getData() async {
-    posts = await RemoteService().getPosts();
+    posts = await RemoteController().getPosts();
     if (posts != null) {
       setState(() {
         isLoaded = true;
@@ -38,10 +38,10 @@ class _HomePageState extends State<HomePage> {
         title: const Text("HEllo"),
       ),
       body: Visibility(
-        visible: true,
-        // replacement: const Center(
-        //   child: CircularProgressIndicator(),
-        // ),
+        visible: isLoaded,
+        replacement: const Center(
+          child: CircularProgressIndicator(),
+        ),
         child: ListView.builder(
             itemCount: posts?.length,
             itemBuilder: (context, index) {
